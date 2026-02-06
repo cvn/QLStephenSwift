@@ -32,6 +32,7 @@ QLStephenSwift is a complete rewrite of the legacy [QLStephen](https://github.co
 - ✅ **Line ending preservation** (LF, CR, CRLF automatically detected and maintained)
 - ✅ macOS 15+ compatible (no external process dependencies)
 - ✅ Excludes binary files and `.DS_Store`
+- ✅ Empty files preview as blank text
 
 ## Requirements
 
@@ -143,6 +144,7 @@ Binary classification rules (applied to sampled data):
 - **Immediate rejection**: Any null byte (0x00) → classified as binary
 - **Statistical analysis**: Control characters (excluding TAB/LF/CR/FF/ESC) > 30% → classified as binary
   - ESC (0x1B) is allowed for ISO-2022-JP escape sequences
+- **Zero-byte files**: Treated as UTF-8 text/plain to allow blank previews
 
 ### File Size Limits
 
@@ -262,6 +264,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Original [QLStephen](https://github.com/whomwah/qlstephen) by Duncan Robertson
 - Inspired by the need for a modern, Swift-based QuickLook solution
 - Implementation assisted by GitHub Copilot with Claude Sonnet 4.5
+- Empty file preview support by cvn (PR #21)
 
 ## Authors
 
